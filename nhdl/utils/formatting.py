@@ -11,7 +11,7 @@ def __sanitize(filename: str):
 def to_pdf(name: str, gallery: dict):
     print("[Progress] Formatting into pdf")
     id = gallery['id']
-    images = sorted(os.listdir(f'./temp_nhdl/{id}/'))
+    images = sorted(os.listdir(f'./temp_nhdl/{id}/'), key = lambda x: int(os.path.splitext(x)[0]))
     c = None
     for i, img_name in enumerate(tqdm(images)):      
         img = Image.open(f'./temp_nhdl/{id}/{img_name}')
@@ -23,6 +23,7 @@ def to_pdf(name: str, gallery: dict):
         c.drawImage(f'./temp_nhdl/{id}/{img_name}', 0, 0, width = width, height = height)
         c.showPage()
         img.close()
+    print('')
     c.save()
     if os.path.exists(f'./temp_nhdl/{id}'):
         shutil.rmtree(f'./temp_nhdl/{id}')

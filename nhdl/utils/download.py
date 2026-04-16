@@ -10,7 +10,7 @@ HEADERS = {"User-Agent": "Mozilla/5.0",
 def __download(url: str, id: str, name: str):   
     data = r.get(f'{BASE}/{url}', headers = HEADERS)
     ext = os.path.splitext(url)[1]
-    with open(f'./temp_nhdl/{id}/{name+ext}', 'wb') as f:
+    with open(f'./temp_nhdl/{id}/{name}.png', 'wb') as f:
         f.write(data.content)
         
 def download_all(gallery: dict, rest: float = 2.0, retry: int = 3):
@@ -26,6 +26,7 @@ def download_all(gallery: dict, rest: float = 2.0, retry: int = 3):
                 break
             except Exception as e:              
                 time.sleep(1)
+    print('')
              
      
 def main():

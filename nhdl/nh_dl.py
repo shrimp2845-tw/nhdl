@@ -1,11 +1,11 @@
 import os
 import sys
-from .utils import download_all, to_pdf, get_info
+from .utils import download_all, to_pdf, get_info, compress_all
 import re
 import shutil
 
 
-VERSION = '0.1.0'
+VERSION = '0.2.0'
 
 
 def __extract_id(url: str) -> str:
@@ -17,10 +17,11 @@ def __extract_id(url: str) -> str:
     else:
         raise ValueError('invalid url')
     
-def download(book: str, rest: float = 2.0, retry: int = 3):
+def download(book: str, compress: bool = False, rest: float = 2.0, retry: int = 3):
     """
     Download an nhentai doujin
     book -> url or id
+    compress -> whether to compress the file
     rest -> time interval between downloading two pages
     retry -> times to retry if disconnect while downloading a page
     """
@@ -32,8 +33,10 @@ def download(book: str, rest: float = 2.0, retry: int = 3):
     try:
         gallery_info = get_info(id)
         download_all(gallery_info, rest, retry)
+        if compress:
+            compress_all(gallery_info)
         to_pdf(f'{gallery_info["title"]}.pdf', gallery_info)
-        print('[API] Program end')
+        print(f'[API] Successfully downloaded {gallery_info["title"]}.pdf')
     except Exception as e:
         if os.path.exists(f'./temp_nhdl/{id}'):
             shutil.rmtree(f'./temp_nhdl/{id}')
