@@ -10,6 +10,7 @@ def __sanitize(filename: str):
 
 def to_pdf(name: str, gallery: dict):
     print("[Progress] Formatting into pdf")
+    name = __sanitize(name)
     id = gallery['id']
     images = sorted(os.listdir(f'./temp_nhdl/{id}/'), key = lambda x: int(os.path.splitext(x)[0]))
     c = None

@@ -5,7 +5,7 @@ import re
 import shutil
 
 
-VERSION = '0.2.0'
+VERSION = '0.2.1'
 
 
 def __extract_id(url: str) -> str:
@@ -36,7 +36,7 @@ def download(book: str, compress: bool = False, rest: float = 2.0, retry: int = 
         if compress:
             compress_all(gallery_info)
         to_pdf(f'{gallery_info["title"]}.pdf', gallery_info)
-        print(f'[API] Successfully downloaded {gallery_info["title"]}.pdf')
+        print(f'[API] Successfully downloaded "{gallery_info["title"]}.pdf"')
     except Exception as e:
         if os.path.exists(f'./temp_nhdl/{id}'):
             shutil.rmtree(f'./temp_nhdl/{id}')

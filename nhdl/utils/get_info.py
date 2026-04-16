@@ -4,7 +4,7 @@ import json
 BASE = 'https://nhentai.net/api/v2/galleries'
 
 def __get_dict(id: str) -> dict:
-    if not id.isdigit() or len(id) != 6:
+    if not id.isdigit():
         raise ValueError('invalid id')
     headers = {'User-Agent': 'nhdl/https://github.com/shrimp2845-tw/nhdl'}
     data = r.get(f'{BASE}/{str(id)}', headers = headers)

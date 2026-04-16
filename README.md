@@ -1,7 +1,7 @@
 ## About
 
 - **Author:** shrimp2845  
-- **Version:** 0.2.0  
+- **Version:** 0.2.1  
 - **License:** MIT
 
 **nhdl** is a lightweight Python tool for downloading galleries from nhentai and converting them into PDF files.
