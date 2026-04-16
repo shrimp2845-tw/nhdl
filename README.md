@@ -43,6 +43,7 @@ methods
 download(book, compress = False, rest=2.0, retry=3)
 Download a nhentai doujin from url or id
 book -> url or id
+compress -> whether to compress the file
 rest -> optional arg, time interval between downloading two pages
 retry -> optional arg, times to retry if disconnect while downloading a page
 
