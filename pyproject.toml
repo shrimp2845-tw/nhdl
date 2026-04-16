@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nhdl"
+version = "0.1.0"
+description = "a lightweight Python tool for downloading galleries from nhentai and converting them into PDF files"
+readme = "README.md"
+requires-python = ">=3.8"
+license = "MIT"
+license-files = ["LICENCE.txt"]
+dependencies = [
+    "requests",
+    "tqdm",
+    "Pillow",
+    "reportlab"
+]
+authors = [
+    {name = "shrimp2845", email = "goldencheng15@gmail.com"}
+]
+keywords = ["python", "downloader", "pdf"]
+
+classifiers = [
+    "Programming Language :: Python :: 3"
+]
+
+[project.urls]
+Homepage = "https://github.com/shrimp2845-tw/nhdl"
+Repository = "https://github.com/shrimp2845-tw/nhdl"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["nhdl*"]

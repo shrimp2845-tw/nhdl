@@ -4,8 +4,8 @@ import time
 from tqdm import tqdm
 
 BASE = 'https://i.nhentai.net'
-HEADERS = {"User-Agent": "Mozilla/5.0",
-                       "Referer": "https://nhentai.net/"}
+HEADERS = {"User-Agent": "Mozilla/5.0", 
+"Referer": "https://nhentai.net/"}
                                         
 def __download(url: str, id: str, name: str):   
     data = r.get(f'{BASE}/{url}', headers = HEADERS)
