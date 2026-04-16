@@ -8,6 +8,15 @@
 
 This project is designed for learning purposes.(No one is going to believe me though XD)
 
+## Dependencies
+
+This project uses the following open-source libraries:
+
+- [requests](https://github.com/psf/requests)
+- [tqdm](https://github.com/tqdm/tqdm)
+- [Pillow](https://github.com/python-pillow/Pillow)
+- [reportlab](https://www.reportlab.com/)
+
 ## Feature 
 - Downloading by gallery ID or URL
 - Progress display using tqdm
