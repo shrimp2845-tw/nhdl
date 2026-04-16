@@ -18,28 +18,28 @@ def __extract_id(url: str) -> str:
         raise ValueError('invalid url')
     
 def download(book: str, rest: float = 2.0, retry: int = 3):
-        """
-        Download an nhentai doujin
-        book -> url or id
-        rest -> time interval between downloading two pages
-        retry -> times to retry if disconnect while downloading a page
-        """
-        print(f'[API] Program start up ({VERSION})')
-        if not book.isdigit():
-            id = __extract(book)
-        else:
-            id = book
-        try:
-            gallery_info = get_info(id)
-            download_all(gallery_info, rest, retry)
-            to_pdf(f'{gallery_info["title"]}.pdf', gallery_info)
-            print('[API] Program end')
-        except Exception as e:
-            if os.path.exists(f'./temp_nhdl/{id}'):
-                shutil.rmtree(f'./temp_nhdl/{id}')
-            print(f'\033[31m [ERROR] {e} \033[0m')
-            sys.exit()
-            
+    """
+    Download an nhentai doujin
+    book -> url or id
+    rest -> time interval between downloading two pages
+    retry -> times to retry if disconnect while downloading a page
+    """
+    print(f'[API] Program start up ({VERSION})')
+    if not book.isdigit():
+        id = __extract(book)
+    else:
+        id = book
+    try:
+        gallery_info = get_info(id)
+        download_all(gallery_info, rest, retry)
+        to_pdf(f'{gallery_info["title"]}.pdf', gallery_info)
+        print('[API] Program end')
+    except Exception as e:
+        if os.path.exists(f'./temp_nhdl/{id}'):
+            shutil.rmtree(f'./temp_nhdl/{id}')
+        print(f'\033[31m [ERROR] {e} \033[0m')
+        sys.exit()
+           
 def main():
     pass
     
