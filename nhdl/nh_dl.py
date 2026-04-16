@@ -27,7 +27,7 @@ def download(book: str, compress: bool = False, rest: float = 2.0, retry: int = 
     """
     print(f'[API] Program start up ({VERSION})')
     if not book.isdigit():
-        id = __extract(book)
+        id = __extract_id(book)
     else:
         id = book
     try:
