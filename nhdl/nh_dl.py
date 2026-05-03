@@ -5,7 +5,7 @@ import re
 import shutil
 
 
-VERSION = '0.2.1'
+VERSION = '0.2.2'
 
 
 def __extract_id(url: str) -> str:
