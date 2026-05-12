@@ -9,7 +9,6 @@ VERSION = '0.2.2'
 
 
 def __extract_id(url: str) -> str:
-    print('[API] Extracting url')
     pattern = r"^https://nhentai\.net/g/(\d+)/?$"
     match = re.match(pattern, url)
     if match:
@@ -25,7 +24,6 @@ def download(book: str, compress: bool = False, rest: float = 2.0, retry: int = 
     rest -> time interval between downloading two pages
     retry -> times to retry if disconnect while downloading a page
     """
-    print(f'[API] Program start up ({VERSION})')
     if not book.isdigit():
         id = __extract_id(book)
     else:

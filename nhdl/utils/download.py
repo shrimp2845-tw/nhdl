@@ -18,7 +18,6 @@ def download_all(gallery: dict, rest: float = 2.0, retry: int = 3):
     if not os.path.exists('./temp_nhdl'):
         os.mkdir('./temp_nhdl')
     os.mkdir(f'./temp_nhdl/{id}')
-    print(f'[Progress] Downloading "{title}"')
     for i, pic in enumerate(tqdm(pages), start = 1):
         for a in range(retry):
             try:      
@@ -27,11 +26,9 @@ def download_all(gallery: dict, rest: float = 2.0, retry: int = 3):
             except Exception as e:              
                 time.sleep(1)
     print('')
-             
      
 def main():
     pass
-    
-    
+
 if __name__ == "__main__":
     main()

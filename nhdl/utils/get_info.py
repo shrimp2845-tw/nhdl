@@ -15,7 +15,6 @@ def get_info(id: str) -> dict:
     info = {'title' : gallery['title']['pretty'],
             'pages' :  [i['path'] for i in gallery['pages']],
             'id' : str(gallery['id'])}
-    print(f'[Progress] Getting info for "{info["title"]}"')
     return info
     
 def main():

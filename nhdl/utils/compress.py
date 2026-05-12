@@ -12,7 +12,6 @@ def __compress(name: str, id: str):
     os.remove(f'./temp_nhdl/{id}/{name}')
     
 def compress_all(gallery: dict):
-    print('[Progress] Compressing pages')
     id = gallery['id']
     pages = os.listdir(f'./temp_nhdl/{id}')
     for i in tqdm(pages):
